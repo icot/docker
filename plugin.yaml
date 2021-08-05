@@ -10,7 +10,7 @@ providers:
     title: docker / container / execute
     description: 'Execute the command in an existing container'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: node-execute
     script-args: ${config.container} ${config.user}
     config:
@@ -61,7 +61,7 @@ providers:
     title: docker-container-node-executor
     description: 'Dispatch the command to an existing container'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: node-execute
     script-args: ${node.docker:Id} ${node.username}
     config:
@@ -110,7 +110,7 @@ providers:
     title: docker-container-file-copier
     description: 'Dispatch script to an existing container'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: file-copier
     script-args: ${node.docker:Id} ${file-copy.file} ${file-copy.destination}
     config:
@@ -146,7 +146,7 @@ providers:
     title: docker / container / model
     description: 'Read docker containers as nodes'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: model-source
     script-args: ${config.attributes}
     config:
@@ -203,7 +203,7 @@ providers:
     title: docker / container / inspect
     description: 'inspect the state of the container'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: container-inspect
     script-args: ${config.container}
     config:
@@ -219,7 +219,7 @@ providers:
     title: docker / container / pause
     description: 'pause all processes within the container'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: container-pause
     script-args: ${config.container}
     config:
@@ -235,7 +235,7 @@ providers:
     title: docker / container / unpause
     description: 'unpause all processes within the container'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: container-unpause
     script-args: ${config.container}
     config:
@@ -251,7 +251,7 @@ providers:
     title: docker / container / kill
     description: 'kill the running container'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: container-kill
     script-args: ${config.container} ${container.signal}
     config:
@@ -271,7 +271,7 @@ providers:
     title: docker / container / stats
     description: 'Display container resource usage statistics (no-stream)'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: container-stats
     script-args: ${config.container} ${config.format}
     config:
@@ -291,7 +291,7 @@ providers:
     title: docker / image / run
     description: 'Run the image and execute command'
     plugin-type: script
-    script-interpreter: python -u
+    script-interpreter: /usr/bin/python3 -u
     script-file: run-image
     script-args: ${config.image} ${config.command}
     config:

@@ -1,4 +1,4 @@
-#!/usr/bin/env python -u
+#!/usr/bin/env python3 -u
 import argparse
 import logging
 import shlex
@@ -54,7 +54,7 @@ def getMapping(mappingList, default_settings, json):
         mapping_array = dict(s.split('=', 1) for s in mapping.split())
         log.debug('mapping_array: %s' % mapping_array)
 
-        for key, value in mapping_array.items():
+        for key, value in list(mapping_array.items()):
 
             log.debug("key: %s, value: %s" % (key, value))
             if ".selector" in key:
@@ -104,7 +104,7 @@ def getMapping(mappingList, default_settings, json):
                         custom_attributes[attribute] = value
                 else:
                     # dataFilter = JsonQuery(item).get(filter)
-                    if filter in default_settings.values():
+                    if filter in list(default_settings.values()):
                         custom_attributes[attribute] = value
                         log.debug("     dataFilter: %s, value: %s" % (filter, value))
 
@@ -119,7 +119,7 @@ def nodeCollectData(containerId, json, defaults, taglist, mappingList):
     #docker-compose has a different json format
     if not ip:
         networkArray=json[0]["NetworkSettings"]["Networks"]
-        for key, value in networkArray.items():
+        for key, value in list(networkArray.items()):
             ip=value["IPAddress"]
 
     default_settings = {
